@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using api.Models;
+using System.Collections;
+using AutoMapper;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Http;
+
+
+namespace api.Controllers {
+    [ApiController]
+    [Route("[Controller]")]
+    public class VendaController : ControllerBase
+    {
+        private readonly VendaContext _vendaContext;
+        private readonly IMapper _mapVenda;
+
+        //TODO fazer camada de serviço
+        public VendaController(VendaContext cont ,IMapper mvenda)
+        {
+            _vendaContext = cont;
+            _mapVenda = mvenda;
+
+        }   
+        [HttpGet]
+        [Route("Venda")]
+        public List<ViewVenda> vendas(){
+     
+           return   _vendaContext.Vendas.ToList().Select(x => _mapVenda.Map<ViewVenda>(x)).ToList();;
+        }
+
+
+        //TODO usar repositorio     
+        [HttpDelete("{id}")]
+        public IActionResult deleteByid (int? id)
+        {
+            Console.WriteLine("passou: " + id.ToString());
+            try
+            {
+                var venda = _vendaContext.Vendas.Single(v => v.id == id);
+
+                if(venda == null)
+                {
+                    return NotFound();
+                }
+
+                _vendaContext.Remove(venda);
+
+                _vendaContext.SaveChanges();
+
+            }
+            catch (System.Exception)
+            {
+                //TODO _loggerErro
+                return StatusCode(500, "Internal server error");
+            }
+            return Ok();
+        }
+        
+        [HttpGet("{id}")]
+        public Venda getByid(int? id)
+        {
+            return _vendaContext.Vendas.Single(v => v.id == id);
+        }
+    
+    }
+}
