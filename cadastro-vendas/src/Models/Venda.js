@@ -32,17 +32,10 @@ export default{
         dataInstalacao : "",
         observacoes : "",
         parcelas : "",
-        PagamentoDebito : "",
-        PagamentoCredito : "",
-        PagamentoEspecie : "",
-        PagamentoFinanciamento : "",
-        PagamentoOutros : "",
+        tipoPagamento : "",
         BotaoExtra : "",
         BotaoExtraQuantidade : "",
-        carro : "",
-        moto : "",
-        caminhao : "",
-        outros : "",
+        tipoVeiculo : "",
         qtdParcelas :""
     }
 }

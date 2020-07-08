@@ -28,31 +28,10 @@ namespace api.Migrations
                     b.Property<string>("BotaoExtraQuantidade")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("PagamentoCredito")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("PagamentoDebito")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("PagamentoEspecie")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("PagamentoFinanciamento")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("PagamentoOutros")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("RGIE")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("bairro")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("caminhao")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("carro")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("cep")
@@ -109,13 +88,7 @@ namespace api.Migrations
                     b.Property<string>("modelo")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("moto")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("observacoes")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("outros")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("panico1")
@@ -140,6 +113,12 @@ namespace api.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("telefoneResidencial")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("tipoPagamento")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("tipoVeiculo")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("valorBotao")

@@ -19,7 +19,6 @@ namespace api.Controllers {
         private readonly VendaContext _vendaContext;
         private readonly IMapper _mapVenda;
 
-        //TODO fazer camada de serviço
         public VendaController(VendaContext cont ,IMapper mvenda)
         {
             _vendaContext = cont;
@@ -32,13 +31,49 @@ namespace api.Controllers {
      
            return   _vendaContext.Vendas.ToList().Select(x => _mapVenda.Map<ViewVenda>(x)).ToList();;
         }
+        
+        [HttpPost]
+        [Route("cadastrar")]
+        public IActionResult  casdastrar([FromBody]Venda venda)
+        {
+
+            System.Console.WriteLine("veiculo : " + venda.tipoVeiculo.ToString());
+           if(venda.id ==0)
+           {
+                _vendaContext.Vendas.Add(venda);
+                _vendaContext.SaveChanges();
+           }else{
+        
+                var vendaOLD = _vendaContext.Vendas.Single(v => v.id == venda.id);
+                if(vendaOLD == null)
+                {
+                    return NotFound();
+                }
+                _vendaContext.Remove(vendaOLD);
+                _vendaContext.SaveChanges();
+                try
+                {
 
 
-        //TODO usar repositorio     
+                    _vendaContext.Add(venda);
+                    _vendaContext.SaveChanges();
+                }
+                catch (System.Exception e)
+                {
+                    System.Console.WriteLine(e.Message);
+                    throw;
+                }
+               
+           }
+         
+            
+            return Ok();
+        }
+
         [HttpDelete("{id}")]
         public IActionResult deleteByid (int? id)
         {
-            Console.WriteLine("passou: " + id.ToString());
+            
             try
             {
                 var venda = _vendaContext.Vendas.Single(v => v.id == id);
@@ -55,7 +90,7 @@ namespace api.Controllers {
             }
             catch (System.Exception)
             {
-                //TODO _loggerErro
+               
                 return StatusCode(500, "Internal server error");
             }
             return Ok();

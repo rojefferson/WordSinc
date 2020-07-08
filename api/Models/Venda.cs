@@ -36,17 +36,10 @@ namespace api.Models
 		public string dataInstalacao {get;set;}
 		public string observacoes {get;set;}
 		public string parcelas {get;set;}
-		public string PagamentoDebito {get;set;}
-		public string PagamentoCredito {get;set;}
-		public string PagamentoEspecie {get;set;}
-		public string PagamentoFinanciamento {get;set;}
-		public string PagamentoOutros {get;set;}
+		public string tipoPagamento {get;set;}
 		public string BotaoExtra {get;set;}
 		public string BotaoExtraQuantidade {get;set;}
-		public string carro {get;set;}
-		public string moto {get;set;}
-		public string caminhao {get;set;}
-		public string outros {get;set;}
+		public string tipoVeiculo {get;set;}
 		public string qtdParcelas {get;set;}
     }
 }

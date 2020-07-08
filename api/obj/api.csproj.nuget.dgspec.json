@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jefferson/Documentos/ProjetoAngular/api/api.csproj": {}
+    "/home/jefferson/Documentos/wordPath/api/api.csproj": {}
   },
   "projects": {
-    "/home/jefferson/Documentos/ProjetoAngular/api/api.csproj": {
+    "/home/jefferson/Documentos/wordPath/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jefferson/Documentos/ProjetoAngular/api/api.csproj",
+        "projectUniqueName": "/home/jefferson/Documentos/wordPath/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/home/jefferson/Documentos/ProjetoAngular/api/api.csproj",
+        "projectPath": "/home/jefferson/Documentos/wordPath/api/api.csproj",
         "packagesPath": "/home/jefferson/.nuget/packages/",
-        "outputPath": "/home/jefferson/Documentos/ProjetoAngular/api/obj/",
+        "outputPath": "/home/jefferson/Documentos/wordPath/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jefferson/.nuget/NuGet/NuGet.Config"
@@ -44,11 +44,23 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.7.1, )"
             },
             "MySqlConnector": {
               "target": "Package",
@@ -61,6 +73,10 @@
             "Pomelo.EntityFrameworkCore.MySql.Design": {
               "target": "Package",
               "version": "[1.1.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
             }
           },
           "imports": [

@@ -7,7 +7,9 @@ namespace api.Models
        
        
         public int id {get;set;}
-        public string nome {get;set;}
+        public string login {get;set;}
+        public string Password { get; set; }
+        public string Role { get; set; }
 
     }
 }
