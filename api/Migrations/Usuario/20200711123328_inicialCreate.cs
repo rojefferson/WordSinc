@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace api.Migrations
+namespace api.Migrations.Usuario
 {
-    public partial class initialCreate : Migration
+    public partial class inicialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

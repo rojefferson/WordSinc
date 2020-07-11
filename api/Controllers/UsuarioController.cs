@@ -25,12 +25,11 @@ namespace api.Controllers
         //TODO  falta consultar do bando
         public async Task<ActionResult<dynamic>> Authenticate([FromBody]Usuario model)
         {
-        //    var usuario = _usuarioCont.Usuarios.Single(v => v.id == model.id);
-        //     if (usuario == null)
-        //         return NotFound(new { message = "Usuário ou senha inválidos" });
+           var usuario = _usuarioCont.Usuarios.Single(v => v.id == model.id);
+            if (usuario == null)
+                return NotFound(new { message = "Usuário ou senha inválidos" });
             
-            System.Console.WriteLine("chegou");
-            var usuario = UsuarioRepository.Get(model.login,model.Password);
+          
             var token =  TokenService.GenerateToken(usuario);
            
             usuario.Password = "";
