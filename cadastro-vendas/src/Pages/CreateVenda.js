@@ -3,7 +3,6 @@ import { Container, Row, Col, FormGroup, Label, Input, FormText  } from 'reactst
 import {Form,FormControl, ControlLabel, HelpBlock, Checkbox, Radio} from 'react-bootstrap';
 import { Link, withRouter } from "react-router-dom";
 import { Nav, NavItem, NavLink ,Button } from 'reactstrap';
-import { cadastrarVenda } from '../Services/api'
 import { urlServidor } from '../Services/config'
 import { logout } from '../Services/auth'
 import Venda from "../Models/Venda"

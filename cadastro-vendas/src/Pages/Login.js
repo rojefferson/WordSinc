@@ -14,7 +14,8 @@ class Login extends  React.Component{
 
       handleSignIn = async e => {
         const {login,password} = this.state
-
+        
+        console.log("chegou");
         fetch('https://localhost:5001/Usuario/login', {
             method: 'post',
             headers: {'Content-Type':'application/json'},
@@ -28,15 +29,18 @@ class Login extends  React.Component{
                 {
                     logar(data.token)
                     this.props.history.push("/home");
+                    console.log(data)
                 }else
                 {
-                    this.setState({ error: "Usuario ou senha incorretos." });
-                }
-           
-                console.log(data);
+                    console.log("erro");
+                    //this.setState({ error: "Usuario ou senha incorretos." });
+                }        
             }).catch(function(error) {
-                this.setState({ error: "Usuario ou senha incorretos" });
+                console.log("erro");
+                //this.setState({ error: "Usuario ou senha incorretos" });
               });
+
+
       };
 
 

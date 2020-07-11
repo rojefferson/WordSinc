@@ -18,12 +18,6 @@ class Home extends React.Component{
         this.sair = this.sair.bind(this);
       }
 
-     NavTeste(){
-        return(
-           <div>teste</div>
-        );
-    }
-
       deleteItem(id) {
        let confirmDelete = window.confirm('Deseja deletar?')        
         if(confirmDelete){
@@ -45,7 +39,7 @@ class Home extends React.Component{
       
 
     getVendas(){
-      fetch( urlServidor + '/Venda/Venda')
+      fetch( urlServidor + 'Venda/Venda')
       .then(response => response.json())
       .then(data => this.setState({ data }));
     }
