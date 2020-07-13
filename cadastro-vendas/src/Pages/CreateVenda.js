@@ -29,6 +29,10 @@ class CreateVenda extends  React.Component{
     }
     
   handleChange(event) {
+
+    const teste = {...this.state.data}
+    console.log(teste)
+
     let fieldName = event.target.name;
     let fleldVal = ""   
     if(event.target.type == "checkbox"){
@@ -302,6 +306,8 @@ class CreateVenda extends  React.Component{
                                     </Input>
                                   </FormGroup>
                                   </Col>
+                                  <Col>
+                                  </Col>
                               </Row>
 
                               <Row>
@@ -385,7 +391,7 @@ class CreateVenda extends  React.Component{
                                   <Col>
                                     <Form.Group style={{visibility: this.exibirParcelas()}}>
                                         <Label for="exampleSelect">Parcelas</Label>
-                                      <Form.Control type="number"  name='qtdParcelas'    onChange={this.handleChange.bind(this)} />
+                                      <Form.Control type="number"  name='qtdParcelas'   defaultValue = {data.qtdParcelas}   onChange={this.handleChange.bind(this)} />
                                     </Form.Group> 
                                   </Col>
                                 </Row>
@@ -404,7 +410,7 @@ class CreateVenda extends  React.Component{
                                   <Col>
                                     <Form.Group>
                                       <Label for="exampleSelect">Qtd. Botão Extra</Label>
-                                      <Form.Control type="number"  name='BotaoExtraQuantidade'    onChange={this.handleChange.bind(this)} />
+                                      <Form.Control type="number"  name='botaoExtraQuantidade'  defaultValue = {data.botaoExtraQuantidade}   onChange={this.handleChange.bind(this)} />
                                     </Form.Group> 
                                   </Col>      
                               </Row>
@@ -447,7 +453,7 @@ class CreateVenda extends  React.Component{
                                     <Col>
                                       <Form.Group >
                                           <Form.Label>Data da Instalação: </Form.Label>
-                                          <Form.Control type="date"  name='dataVenda'   defaultValue={data.dataVenda}  onChange={this.handleChange.bind(this)} />
+                                          <Form.Control type="date"  name='dataInstalacao'   defaultValue={data.dataInstalacao}  onChange={this.handleChange.bind(this)} />
                                       </Form.Group>
                                     </Col>
                                 </Row>

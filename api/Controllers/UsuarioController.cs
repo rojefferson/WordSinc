@@ -22,18 +22,15 @@ namespace api.Controllers
         
         [HttpPost]
         [Route("login")]
-        //TODO  falta consultar do bando
         public async Task<ActionResult<dynamic>> Authenticate([FromBody]Usuario model)
         {
-           var usuario = _usuarioCont.Usuarios.Single(v => v.id == model.id);
-            if (usuario == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
+
+           var usuario = _usuarioCont.Usuarios.Single(v => v.login.ToLower() == model.login.ToLower() && v.Password.ToLower() == model.Password );                      
+           
+             if (usuario == null)
+                 return NotFound(new { message = "Usuário ou senha inválidos" });
             
-          
             var token =  TokenService.GenerateToken(usuario);
-           
-            usuario.Password = "";
-           
             return new
             {   
                 message = "Sucesso",
@@ -41,6 +38,8 @@ namespace api.Controllers
                 token = token
             };
         }
+    
+
     }
 
 }

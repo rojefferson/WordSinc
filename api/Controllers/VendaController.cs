@@ -36,8 +36,6 @@ namespace api.Controllers {
         [Route("cadastrar")]
         public IActionResult  casdastrar([FromBody]Venda venda)
         {
-
-            System.Console.WriteLine("veiculo : " + venda.tipoVeiculo.ToString());
            if(venda.id ==0)
            {
                 _vendaContext.Vendas.Add(venda);
@@ -61,7 +59,6 @@ namespace api.Controllers {
                 catch (System.Exception e)
                 {
                     System.Console.WriteLine(e.Message);
-                    throw;
                 }
                
            }

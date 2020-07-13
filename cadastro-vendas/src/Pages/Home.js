@@ -19,9 +19,10 @@ class Home extends React.Component{
       }
 
       deleteItem(id) {
-       let confirmDelete = window.confirm('Deseja deletar?')        
+       let confirmDelete = window.confirm('Deseja deletar?');
+       console.log(id)   
         if(confirmDelete){
-          fetch(urlServidor +'/Venda/' + String(id), {
+          fetch(urlServidor +'Venda/' + String(id), {
           method: 'delete',
           headers: {
             'Content-Type': 'application/json'
