@@ -51,8 +51,6 @@ namespace api.Controllers {
                 _vendaContext.SaveChanges();
                 try
                 {
-
-
                     _vendaContext.Add(venda);
                     _vendaContext.SaveChanges();
                 }
@@ -62,8 +60,7 @@ namespace api.Controllers {
                 }
                
            }
-         
-            
+    
             return Ok();
         }
 
@@ -74,20 +71,16 @@ namespace api.Controllers {
             try
             {
                 var venda = _vendaContext.Vendas.Single(v => v.id == id);
-
                 if(venda == null)
                 {
                     return NotFound();
                 }
-
                 _vendaContext.Remove(venda);
-
                 _vendaContext.SaveChanges();
 
             }
             catch (System.Exception)
             {
-               
                 return StatusCode(500, "Internal server error");
             }
             return Ok();

@@ -6,11 +6,17 @@ import { urlServidor } from '../Services/config'
 
 
 class Login extends  React.Component{
-    state = {
-        login: "",
-        password: "",
-        error: ""
-      };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            login: "",
+            password: "",
+            error: ""
+          };
+
+    }
+   
 
       handleSignIn = async e => {
         const {login,password} = this.state
@@ -33,17 +39,13 @@ class Login extends  React.Component{
                 {
                     logar(data.token)
                     this.props.history.push("/home");
-                    console.log(data)
                 }else
                 {
-                    console.log(data);
-                    //this.setState({ error: "Usuario ou senha incorretos." });
+                    this.setState({ error: "Usuario ou senha incorretos." });
                 }        
             }).catch(function(error) {
-                console.log(error);
-                //this.setState({ error: "Usuario ou senha incorretos" });
+                this.setState({ error: "Usuario ou senha incorretos" });
               });
-
 
       };
 
@@ -53,8 +55,9 @@ class Login extends  React.Component{
         return( 
             <div className="cotainer">
                     <div className="row justify-content-center" >
-                        <div className="col-md-8">
-                            <div className="card">
+                        <div className="col-md-2"></div>
+                        <div className="col-md-8" style ={{ padding: "100px 0"}} >
+                            <div className="card" style={{ width : "70%"}}>
                                 <div className="card-header">Login</div>
                                 <div className="card-body">
                                         <div  className="form-group row">
