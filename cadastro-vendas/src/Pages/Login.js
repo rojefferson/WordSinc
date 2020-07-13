@@ -17,15 +17,11 @@ class Login extends  React.Component{
 
     }
    
+    
 
       handleSignIn = async e => {
         const {login,password} = this.state
         
-
-        console.log(JSON.stringify({
-            "login": login,
-            "password" :password
-            }));
         fetch( urlServidor +  'Usuario/login', {
             method: 'post',
             headers: {'Content-Type':'application/json'},
@@ -43,7 +39,7 @@ class Login extends  React.Component{
                 {
                     this.setState({ error: "Usuario ou senha incorretos." });
                 }        
-            }).catch(function(error) {
+            }).catch( er => {
                 this.setState({ error: "Usuario ou senha incorretos" });
               });
 
@@ -60,8 +56,17 @@ class Login extends  React.Component{
                             <div className="card" style={{ width : "70%"}}>
                                 <div className="card-header">Login</div>
                                 <div className="card-body">
-                                        <div  className="form-group row">
-                                            {this.state.error && <p>{this.state.error}</p>}
+                                        <div  className="form-group row" >
+                                            <div className = "col-md-3">
+
+                                            </div>
+                                            <div className = "col-md-6">
+                                             {this.state.error && <p>{this.state.error}</p>}
+                                            </div>
+                                            <div className = "col-md-3">
+
+                                            </div>
+                                           
                                         </div>
                                           
                                         <div className="form-group row">
